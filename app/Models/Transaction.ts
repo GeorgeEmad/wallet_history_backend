@@ -20,6 +20,12 @@ export default class Transaction extends BaseModel {
   public amount: number
 
   @column()
+  public balance_before: number
+
+  @column()
+  public balance_after: number
+
+  @column()
   public purpose: string
 
   @column.dateTime({ autoCreate: true })

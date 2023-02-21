@@ -27,11 +27,12 @@ Route.get('/', async () => {
 //Authentication and Register
 Route.post('/api/user/login', 'AuthController.user_login') //login
 Route.post('/api/user/register', 'AuthController.user_register') //register
-// Route.post('/api/user/logout', 'AuthController.user_logout') //logout
-
-
+Route.post('/api/user/logout', 'AuthController.user_logout') //logout
 
 
 Route.group(() => {
-
+  Route.post('/api/wallet/create', 'WalletsController.create_wallet') //create wallet
+  Route.post('/api/transaction/create', 'TransactionsController.create_transaction') //create transaction
+  Route.get('/api/wallet/get', 'WalletsController.get_wallet') //get wallet
+  Route.get('/api/user/get', 'UsersController.get_user') //get user
 }).middleware(['auth:Users'])
