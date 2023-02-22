@@ -33,6 +33,8 @@ Route.post('/api/user/logout', 'AuthController.user_logout') //logout
 Route.group(() => {
   Route.post('/api/wallet/create', 'WalletsController.create_wallet') //create wallet
   Route.post('/api/transaction/create', 'TransactionsController.create_transaction') //create transaction
+  Route.post('/api/transaction/get_all/:page', 'TransactionsController.get_user_transactions') //get transactions
+
   Route.get('/api/wallet/get', 'WalletsController.get_wallet') //get wallet
   Route.get('/api/user/get', 'UsersController.get_user') //get user
 }).middleware(['auth:Users'])

@@ -5,7 +5,6 @@ export default class CreateTransactionValidator {
   constructor(protected ctx: HttpContextContract) {}
 
   public schema = schema.create({
-    wallet_id: schema.number([rules.exists({ table: 'wallet', column: 'id' })]),
     type: schema.enum(['income', 'expense'] as const),
     amount: schema.number(),
     purpose: schema.string({ trim: true }),
