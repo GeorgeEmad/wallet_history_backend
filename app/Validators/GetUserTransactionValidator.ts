@@ -9,6 +9,8 @@ export default class GetUserTransactionValidator {
     params: schema.object().members({
       page: schema.number(),
     }),
+    from: schema.string.optional(),
+    to: schema.string.optional(),
     type: schema.enum.optional(['income', 'expense'] as const),
     purpose: schema.string.optional({ trim: true }),
   })

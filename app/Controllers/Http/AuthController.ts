@@ -9,7 +9,7 @@ export default class AuthController {
    * @param param0
    * @returns
    */
-  public async user_login({ request, response, auth }: HttpContextContract) {
+  public async userLogin({ request, response, auth }: HttpContextContract) {
     let { uid, password } = await request.validate(LoginValidator)
     console.log(uid + " -- " + password)
     try {
@@ -28,7 +28,7 @@ export default class AuthController {
    * @param param0
    * @returns
    */
-  public async user_register({ request, response }: HttpContextContract) {
+  public async userRegister({ request, response }: HttpContextContract) {
     let { email, phoneNumber, password, } = await request.validate(RegisterValidator)
     const user = await User.create({ email, phoneNumber, password })
     return response.created({
@@ -43,7 +43,7 @@ export default class AuthController {
    * @param param0
    * @returns
    */
-  public async user_logout({ auth, response }: HttpContextContract) {
+  public async userLogout({ auth, response }: HttpContextContract) {
     await auth.logout()
     return response.status(200).json({
       message: 'logged out'

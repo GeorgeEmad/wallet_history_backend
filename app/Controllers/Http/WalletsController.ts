@@ -8,7 +8,7 @@ export default class WalletsController {
      * @param param0 
      * @returns 
      */
-    public async create_wallet({ response, auth }: HttpContextContract) {
+    public async createWallet({ response, auth }: HttpContextContract) {
         try {
             const created_wallet = await Wallet.create({
                 id: auth.user?.id,
@@ -27,7 +27,7 @@ export default class WalletsController {
      * @param param0 
      * @returns 
      */
-    public async get_wallet({ response, auth }: HttpContextContract) {
+    public async getWallet({ response, auth }: HttpContextContract) {
         try {
             let wallet = await Wallet.findOrFail(auth.user?.id)
             return response.json({
